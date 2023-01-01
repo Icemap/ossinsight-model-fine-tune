@@ -82,6 +82,6 @@
 
 ## How can I add a case in the fine-tune data?
 
-- Add a folder in the `fine-tune-data` folder (For example, it's named `test-data`).
+- Add a folder in the `fine-tune-data` folder (You can name it arbitrarily. But it needs unique and meaningful.).
 - Add two files, named `prompt` and `completion`. Basically speaking, the `prompt` is a question, and the `completion` is the corresponding correct answer.
 - [Give a PR](https://github.com/Icemap/ossinsight-model-fine-tune/pulls), waiting for merge, that's all.
