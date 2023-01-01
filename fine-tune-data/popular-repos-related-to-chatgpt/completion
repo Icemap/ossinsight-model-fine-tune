@@ -1,0 +1,11 @@
+SELECT
+  `gr`.`repo_name`,
+  `gr`.`stars` AS `popularity`
+FROM
+  `github_repos` AS `gr`
+WHERE
+  `gr`.`description` LIKE '%ChatGPT%'
+ORDER BY
+  `popularity` DESC
+LIMIT
+  200

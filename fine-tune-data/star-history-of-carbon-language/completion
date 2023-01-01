@@ -1,0 +1,31 @@
+SELECT
+  `t_month`,
+  `stars`,
+  SUM(`stars`) OVER (
+    ORDER BY
+      `t_month` ASC
+  ) AS `cumulative_stars`
+FROM
+  (
+    SELECT
+      DATE_FORMAT(`created_at`, '%Y-%m-01') AS `t_month`,
+      COUNT(DISTINCT `actor_login`) AS `stars`
+    FROM
+      `github_events` AS `ge`
+    WHERE
+      `ge`.`type` = 'WatchEvent'
+      AND `ge`.`repo_id` = (
+        SELECT
+          `repo_id`
+        FROM
+          `github_repos`
+        WHERE
+          `repo_name` = 'carbon-language/carbon-lang'
+      )
+    GROUP BY
+      `t_month`
+  ) AS `star_counts`
+ORDER BY
+  `t_month` ASC
+LIMIT
+  200
