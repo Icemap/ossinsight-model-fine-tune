@@ -79,3 +79,9 @@
     So, in this case, the model ID is `davinci:ft-personal:ossinsight-2023-01-01-19-57-09`.
 
 - Then, you can use the model by ID in your own OSSInsight.
+
+## How can I add a case in the fine-tune data?
+
+- Add a folder in the `fine-tune-data` folder (For example, it's named `test-data`).
+- Add two files, named `prompt` and `completion`. Basically speaking, the `prompt` is a question, and the `completion` is the corresponding correct answer.
+- [Give a PR](https://github.com/Icemap/ossinsight-model-fine-tune/pulls), waiting for merge, that's all.
